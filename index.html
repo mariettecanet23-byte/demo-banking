@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banque Demo - Authentification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container" id="authContainer">
+        <div class="login-box">
+            <div class="bank-logo">
+                <h1>🏦 BanqueDemo</h1>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Identifiant:</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Entrez votre identifiant"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe:</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Entrez votre mot de passe"
+                        required
+                    >
+                </div>
+                <div id="errorMessage" class="error-message"></div>
+                <button type="submit" class="login-btn">Connexion</button>
+            </form>
+            <div class="demo-credentials">
+                <p><strong>Identifiant:</strong> tyla</p>
+                <p><strong>Mot de passe:</strong> demo123</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="dashboardContainer" style="display: none;">
+        <div class="dashboard-header">
+            <div class="header-left">
+                <h1>🏦 BanqueDemo</h1>
+            </div>
+            <div class="header-right">
+                <span id="userGreeting"></span>
+                <button class="logout-btn" onclick="handleLogout()">Déconnexion</button>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="welcome-section">
+                <h2>Bienvenue</h2>
+                <p id="welcomeMessage"></p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card account-info">
+                    <h3>Informations du Compte</h3>
+                    <div class="info-item">
+                        <label>Nom et Prénom:</label>
+                        <p id="fullName"></p>
+                    </div>
+                    <div class="info-item">
+                        <label>Type de Compte:</label>
+                        <p>Compte Courant</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Numéro de Compte:</label>
+                        <p>FR76 3000 3007 3100 0000 1234 5</p>
+                    </div>
+                </div>
+
+                <div class="card balance-card">
+                    <h3>Solde Disponible</h3>
+                    <div class="balance-amount">
+                        <p id="balance"></p>
+                    </div>
+                    <div class="balance-info">
+                        <p>💰 Solde au <span id="balanceDate"></span></p>
+                    </div>
+                </div>
+
+                <div class="card transactions-card">
+                    <h3>Dernière Transaction</h3>
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <p class="transaction-date" id="transactionDate"></p>
+                            <p class="transaction-desc">Virement reçu</p>
+                        </div>
+                        <p class="transaction-amount" id="transactionAmount"></p>
+                    </div>
+                </div>
+
+                <div class="card quick-actions">
+                    <h3>Actions Rapides</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showNotification('Virement en cours de développement')">Faire un Virement</button>
+                        <button class="action-btn" onclick="showNotification('Historique en cours de développement')">Voir l\'Historique</button>
+                        <button class="action-btn" onclick="showNotification('Paramètres en cours de développement')">Paramètres</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-footer">
+            <p>&copy; 2025 BanqueDemo - Application de Démonstration | Sécurisée et Verrouillée</p>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
